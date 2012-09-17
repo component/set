@@ -14,8 +14,12 @@ $ component install component/set
 ```js
 var set = require('set');
 set.add('foo');
+set.add('foo');
 set.add({ some: 'object' });
 set.remove('foo');
+
+set.values();
+// => [{ some: 'object' }]
 ```
 
 ## API
