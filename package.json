@@ -1,0 +1,14 @@
+{
+  "name": "set-component",
+  "version": "0.0.1",
+  "description": "Set container",
+  "keywords": ["set"],
+  "dependencies": {
+    "indexof": "*"
+  },
+  "component": {
+    "scripts": {
+      "set/index.js": "index.js"
+    }
+  }
+}

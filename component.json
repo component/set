@@ -1,0 +1,13 @@
+{
+  "name": "set",
+  "version": "0.0.1",
+  "description": "set container",
+  "keywords": ["set"],
+  "scripts": ["index.js"],
+  "dependencies": {
+    "component/indexof": "*"
+  },
+  "development": {
+    "component/assert": "*"
+  }
+}
