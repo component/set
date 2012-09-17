@@ -87,4 +87,22 @@ describe('Set()', function(){
       assert('bar' == old[1]);
     })
   })
+
+  describe('.union(set)', function(){
+    it('should perform a union of the given set', function(){
+      var a = new Set;
+      a.add('foo');
+      a.add('bar');
+
+      var b = new Set;
+      b.add('bar');
+      b.add('baz');
+
+      var set = a.union(b);
+      assert(3 == set.length());
+      assert(set.has('foo'));
+      assert(set.has('bar'));
+      assert(set.has('baz'));
+    })
+  })
 })
