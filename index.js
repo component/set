@@ -105,8 +105,10 @@ Set.prototype.remove = function(val){
 
 Set.prototype.union = function(set){
   var ret = new Set;
-  for (var i = 0; i < this.vals.length; ++i) ret.add(this.vals[i]);
-  for (var i = 0; i < set.vals.length; ++i) ret.add(set.vals[i]);
-  return set;
+  var a = this.vals;
+  var b = set.vals;
+  for (var i = 0; i < a.length; ++i) ret.add(a[i]);
+  for (var i = 0; i < b.length; ++i) ret.add(b[i]);
+  return ret;
 };
 
