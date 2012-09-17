@@ -106,4 +106,25 @@ describe('Set()', function(){
       assert('baz' == vals[2]);
     })
   })
+
+  describe('.intersect(set)', function(){
+    it('should perform an intersection', function(){
+      var a = new Set;
+      a.add('one');
+      a.add('two');
+      a.add('three');
+
+      var b = new Set;
+      b.add('two');
+      b.add('one');
+      b.add('four');
+      b.add('five');
+
+      var set = a.intersect(b);
+      var vals = set.values();
+      assert('one' == vals[0]);
+      assert('two' == vals[1]);
+      assert(2 == vals.length);
+    })
+  })
 })

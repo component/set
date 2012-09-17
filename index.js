@@ -112,3 +112,31 @@ Set.prototype.union = function(set){
   return ret;
 };
 
+/**
+ * Perform an intersection on `set`.
+ *
+ * @param {Set} set
+ * @return {Set} new set
+ * @api public
+ */
+
+Set.prototype.intersect = function(set){
+  var ret = new Set;
+  var a = this.vals;
+  var b = set.vals;
+
+  for (var i = 0; i < a.length; ++i) {
+    if (set.has(a[i])) {
+      ret.add(a[i]);
+    }
+  }
+
+  for (var i = 0; i < b.length; ++i) {
+    if (this.has(b[i])) {
+      ret.add(b[i]);
+    }
+  }
+
+  return ret;
+};
+
