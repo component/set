@@ -69,6 +69,19 @@ Set.prototype.length = function(){
 };
 
 /**
+ * Empty the set and return old values.
+ *
+ * @return {Array}
+ * @api public
+ */
+
+Set.prototype.empty = function(){
+  var old = this.vals;
+  this.vals = [];
+  return old;
+};
+
+/**
  * Remove `val`, returning __true__ when present, otherwise __false__.
  *
  * @param {Mixed} val

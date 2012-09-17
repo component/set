@@ -68,4 +68,23 @@ describe('Set()', function(){
       assert(3 == set.length());
     })
   })
+
+  describe('.empty()', function(){
+    it('should empty the set', function(){
+      var set = new Set;
+      set.add('foo');
+      set.add('bar');
+      set.empty();
+      assert(0 == set.length());
+    })
+
+    it('should return the old values', function(){
+      var set = new Set;
+      set.add('foo');
+      set.add('bar');
+      var old = set.empty();
+      assert('foo' == old[0]);
+      assert('bar' == old[1]);
+    })
+  })
 })
