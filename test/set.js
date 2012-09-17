@@ -100,9 +100,10 @@ describe('Set()', function(){
 
       var set = a.union(b);
       assert(3 == set.length());
-      assert(set.has('foo'));
-      assert(set.has('bar'));
-      assert(set.has('baz'));
+      var vals = set.values();
+      assert('foo' == vals[0]);
+      assert('bar' == vals[1]);
+      assert('baz' == vals[2]);
     })
   })
 })

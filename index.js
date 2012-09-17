@@ -94,3 +94,19 @@ Set.prototype.remove = function(val){
   if (~i) this.vals.splice(i, 1);
   return !! ~i;
 };
+
+/**
+ * Perform a union on `set`.
+ *
+ * @param {Set} set
+ * @return {Set} new set
+ * @api public
+ */
+
+Set.prototype.union = function(set){
+  var ret = new Set;
+  for (var i = 0; i < this.vals.length; ++i) ret.add(this.vals[i]);
+  for (var i = 0; i < set.vals.length; ++i) ret.add(set.vals[i]);
+  return set;
+};
+
