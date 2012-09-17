@@ -12,7 +12,9 @@ $ component install component/set
 ## Example
 
 ```js
-var set = require('set');
+var Set = require('set');
+var set = new Set;
+
 set.add('foo');
 set.add('foo');
 set.add({ some: 'object' });
@@ -23,6 +25,39 @@ set.values();
 ```
 
 ## API
+
+### Set#add(value)
+
+  Add `value` to the set.
+
+### Set#remove(value)
+
+  Remove `value` from the set, returning __true__ when present,
+  otherwise returning __false__.
+
+### Set#has(value)
+
+  Check if `value` is present.
+
+### Set#values()
+
+  Return an array of values.
+
+### Set#size()
+
+  Return the set size.
+
+### Set#empty()
+
+  Empty the set and return the old values array.
+
+### Set#union(set)
+
+  Perform a union with `set` and return a new `Set`.
+
+### Set#intersect(set)
+
+  Perform an intersection with `set` and return a new `Set`.
 
 ## License 
 

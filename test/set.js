@@ -58,14 +58,14 @@ describe('Set()', function(){
     })
   })
 
-  describe('.length()', function(){
+  describe('.size()', function(){
     it('should return the length', function(){
       var set = new Set;
-      assert(0 == set.length());
+      assert(0 == set.size());
       set.add('foo');
       set.add('bar');
       set.add('baz');
-      assert(3 == set.length());
+      assert(3 == set.size());
     })
   })
 
@@ -75,7 +75,7 @@ describe('Set()', function(){
       set.add('foo');
       set.add('bar');
       set.empty();
-      assert(0 == set.length());
+      assert(0 == set.size());
     })
 
     it('should return the old values', function(){
@@ -99,7 +99,7 @@ describe('Set()', function(){
       b.add('baz');
 
       var set = a.union(b);
-      assert(3 == set.length());
+      assert(3 == set.size());
       var vals = set.values();
       assert('foo' == vals[0]);
       assert('bar' == vals[1]);

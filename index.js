@@ -64,7 +64,7 @@ Set.prototype.values = function(){
  * @api public
  */
 
-Set.prototype.length = function(){
+Set.prototype.size = function(){
   return this.vals.length;
 };
 
