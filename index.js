@@ -12,14 +12,20 @@ var indexof = require('indexof');
 module.exports = Set;
 
 /**
- * Initialize a new `Set`.
+ * Initialize a new `Set` with optional `vals`
  *
+ * @param {Array} vals
  * @api public
  */
 
-function Set() {
-  if (!(this instanceof Set)) return new Set;
+function Set(vals) {
+  if (!(this instanceof Set)) return new Set(vals);
   this.vals = [];
+  if (vals) {
+    for (var i = 0; i < vals.length; ++i) {
+      this.add(vals[i]);
+    }
+  }
 }
 
 /**

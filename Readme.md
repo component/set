@@ -26,6 +26,14 @@ set.values();
 
 ## API
 
+### Set()
+
+  Create a new `Set`.
+
+### Set(values)
+
+  Create a new `Set` with `values` array. Duplicates will be removed.
+
 ### Set#add(value)
 
   Add `value` to the set.

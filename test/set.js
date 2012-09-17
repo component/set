@@ -7,6 +7,14 @@ describe('Set()', function(){
     assert(Set() instanceof Set);
   })
 
+  it('should populate from an array', function(){
+    var set = new Set(['foo', 'bar', 'baz', 'baz']);
+    assert(3 == set.size());
+
+    var set = Set(['foo', 'bar', 'baz', 'baz']);
+    assert(3 == set.size());
+  })
+
   describe('.add(val)', function(){
     it('should add the value only once', function(){
       var set = new Set;
