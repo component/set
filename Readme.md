@@ -51,6 +51,8 @@ set.values();
 
   Return an array of values.
 
+  Aliased as `.toJSON()`.
+
 ### Set#size()
 
   Return the set size.
@@ -58,6 +60,10 @@ set.values();
 ### Set#clear()
 
   Empty the set and return the old values array.
+
+### Set#isEmpty()
+
+  Check if the set is empty.
 
 ### Set#union(set)
 
