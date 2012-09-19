@@ -77,12 +77,12 @@ describe('Set()', function(){
     })
   })
 
-  describe('.empty()', function(){
+  describe('.clear()', function(){
     it('should empty the set', function(){
       var set = new Set;
       set.add('foo');
       set.add('bar');
-      set.empty();
+      set.clear();
       assert(0 == set.size());
     })
 
@@ -90,7 +90,7 @@ describe('Set()', function(){
       var set = new Set;
       set.add('foo');
       set.add('bar');
-      var old = set.empty();
+      var old = set.clear();
       assert('foo' == old[0]);
       assert('bar' == old[1]);
     })

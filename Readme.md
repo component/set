@@ -55,7 +55,7 @@ set.values();
 
   Return the set size.
 
-### Set#empty()
+### Set#clear()
 
   Empty the set and return the old values array.
 

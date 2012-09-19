@@ -81,7 +81,7 @@ Set.prototype.size = function(){
  * @api public
  */
 
-Set.prototype.empty = function(){
+Set.prototype.clear = function(){
   var old = this.vals;
   this.vals = [];
   return old;
