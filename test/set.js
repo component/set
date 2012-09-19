@@ -135,4 +135,21 @@ describe('Set()', function(){
       assert(2 == vals.length);
     })
   })
+
+  describe('.isEmpty()', function(){
+    describe('when empty', function(){
+      it('should return true', function(){
+        var set = new Set;
+        assert(true === set.isEmpty());
+      })
+    })
+
+    describe('when not empty', function(){
+      it('should return false', function(){
+        var set = new Set;
+        set.add('foo');
+        assert(false === set.isEmpty());
+      })
+    })
+  })
 })

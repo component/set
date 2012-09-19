@@ -146,3 +146,14 @@ Set.prototype.intersect = function(set){
   return ret;
 };
 
+/**
+ * Check if the set is empty.
+ *
+ * @return {Boolean}
+ * @api public
+ */
+
+Set.prototype.isEmpty = function(){
+  return 0 == this.vals.length;
+};
+
