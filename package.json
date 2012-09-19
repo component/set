@@ -1,6 +1,6 @@
 {
   "name": "set-component",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Set container",
   "keywords": ["set"],
   "dependencies": {
