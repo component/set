@@ -136,6 +136,17 @@ describe('Set()', function(){
     })
   })
 
+  describe('.toJSON()', function(){
+    it('should return the array', function(){
+      var set = new Set;
+      set.add('foo');
+      set.add('bar');
+      var arr = set.toJSON();
+      assert('foo' == arr[0]);
+      assert('bar' == arr[1]);
+    })
+  })
+
   describe('.isEmpty()', function(){
     describe('when empty', function(){
       it('should return true', function(){

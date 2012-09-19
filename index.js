@@ -59,7 +59,8 @@ Set.prototype.has = function(val){
  * @api public
  */
 
-Set.prototype.values = function(){
+Set.prototype.values = 
+Set.prototype.toJSON = function(){
   return this.vals;
 };
 
