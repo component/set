@@ -53,6 +53,10 @@ set.values();
 
   Aliased as `.toJSON()`.
 
+### Set#each(fn)
+
+  Iterate each member and invoke `fn(val)`.
+
 ### Set#size()
 
   Return the set size.

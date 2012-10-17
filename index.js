@@ -53,6 +53,21 @@ Set.prototype.has = function(val){
 };
 
 /**
+ * Iterate each member and invoke `fn(val)`.
+ *
+ * @param {Function} fn
+ * @return {Set}
+ * @api public
+ */
+
+Set.prototype.each = function(fn){
+  for (var i = 0; i < this.vals.length; ++i) {
+    fn(this.vals[i]);
+  }
+  return this;
+};
+
+/**
  * Return the values as an array.
  *
  * @return {Array}
