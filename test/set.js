@@ -2,6 +2,15 @@
 var Set = require('set')
   , assert = require('component-assert');
 
+function User(name) {
+  this.name = name;
+}
+
+User.prototype.equals = function(user){
+  return this.name == user.name;
+};
+
+
 describe('Set()', function(){
   it('should return a new set', function(){
     assert(Set() instanceof Set);
@@ -13,6 +22,21 @@ describe('Set()', function(){
 
     var set = Set(['foo', 'bar', 'baz', 'baz']);
     assert(3 == set.size());
+  })
+
+  it('should support .equals(other)', function(){
+    var a = new User('tj');
+    var b = new User('tj');
+    var c = new User('tobi');
+
+    var set = new Set([a,b,c]);
+    assert(2 == set.size());
+    assert(a == set.values()[0]);
+    assert(c == set.values()[1]);
+
+    set.remove(b);
+    assert(1 == set.size());
+    assert(c == set.values()[0]);
   })
 
   describe('.add(val)', function(){

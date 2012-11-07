@@ -1,11 +1,5 @@
 
 /**
- * Module dependencies.
- */
-
-var indexof = require('indexof');
-
-/**
  * Expose `Set`.
  */
 
@@ -49,7 +43,24 @@ Set.prototype.add = function(val){
  */
 
 Set.prototype.has = function(val){
-  return !! ~indexof(this.vals, val);
+  return !! ~this.indexOf(val);
+};
+
+/**
+ * Return the indexof `val`.
+ *
+ * @param {Mixed} val
+ * @return {Number}
+ * @api private
+ */
+
+Set.prototype.indexOf = function(val){
+  for (var i = 0, len = this.vals.length; i < len; ++i) {
+    var obj = this.vals[i];
+    if (obj.equals && obj.equals(val)) return i;
+    if (obj == val) return i;
+  }
+  return -1;
 };
 
 /**
@@ -112,7 +123,7 @@ Set.prototype.clear = function(){
  */
 
 Set.prototype.remove = function(val){
-  var i = indexof(this.vals, val);
+  var i = this.indexOf(val);
   if (~i) this.vals.splice(i, 1);
   return !! ~i;
 };

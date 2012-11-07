@@ -4,9 +4,6 @@
   "description": "set container",
   "keywords": ["set"],
   "scripts": ["index.js"],
-  "dependencies": {
-    "component/indexof": "*"
-  },
   "development": {
     "component/assert": "*"
   }

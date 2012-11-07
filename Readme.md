@@ -24,6 +24,18 @@ set.values();
 // => [{ some: 'object' }]
 ```
 
+## Equality
+
+  Set supports an `.equals(other)` method when present,
+  for example you may then add two separate `User` instances
+  that are identified as being the same via their name:
+
+```js
+User.prototype.equals = function(user){
+  return this.name == user.name;
+};
+```
+
 ## API
 
 ### Set()
