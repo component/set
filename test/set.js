@@ -187,4 +187,30 @@ describe('Set()', function(){
       })
     })
   })
+
+  describe('.clone()', function(){
+    it('should return a new set', function(){
+      var a = new Set;
+      var b = a.clone();
+      assert(b instanceof Set);
+    })
+
+    it('should be of the same size', function(){
+      var a = new Set;
+      a.add('foo');
+      a.add('bar');
+      var b = a.clone();
+      assert(a.size() === b.size());
+    })
+
+    it('should have the same values', function(){
+      var a = new Set;
+      a.add('foo');
+      a.add('bar');
+      var b = a.clone();
+      assert(a.size() === b.size());
+      assert(true === b.has('foo'));
+      assert(true === b.has('bar'));
+    })
+  })
 })

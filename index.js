@@ -91,6 +91,17 @@ Set.prototype.toJSON = function(){
 };
 
 /**
+ * Clone the set.
+ *
+ * @return {Set}
+ * @api public
+ */
+
+Set.prototype.clone = function(){
+  return new Set(this.vals);
+};
+
+/**
  * Return the set size.
  *
  * @return {Number}
