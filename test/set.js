@@ -208,9 +208,22 @@ describe('Set()', function(){
       a.add('foo');
       a.add('bar');
       var b = a.clone();
-      assert(a.size() === b.size());
       assert(true === b.has('foo'));
       assert(true === b.has('bar'));
+    })
+
+    it('should not be the same objects', function(){
+      var a = new Set;
+      var b = a.clone();
+      assert(a !== b);
+    })
+
+    it('should not have the same values array', function(){
+      var a = new Set;
+      a.add('foo')
+      a.add('bar')
+      var b = a.clone();
+      assert(a.values() !== b.values());
     })
   })
 })
