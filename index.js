@@ -85,7 +85,9 @@ Set.prototype.each = function(fn){
  * @api public
  */
 
-Set.prototype.values = 
+Set.prototype.values =
+Set.prototype.array =
+Set.prototype.members =
 Set.prototype.toJSON = function(){
   return this.vals;
 };
