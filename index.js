@@ -5,22 +5,29 @@
 
 module.exports = Set;
 
+
 /**
  * Initialize a new `Set` with optional `vals`
  *
- * @param {Array} vals
+ * @param {Array} vals source array
+ * @param {Object} opts options parameter to specify custom `comparator` function
  * @api public
  */
 
-function Set(vals) {
-  if (!(this instanceof Set)) return new Set(vals);
+function Set(vals, opts) {
+  if (!(this instanceof Set)) return new Set(vals, opts);
   this.vals = [];
+
+  // Manage options
+  opts = opts || {};
+  this.areEqual = ('function' == typeof(opts.comparator)) ? opts.comparator : null;
+
   if (vals) {
     for (var i = 0; i < vals.length; ++i) {
       this.add(vals[i]);
     }
   }
-}
+};
 
 /**
  * Add `val`.
@@ -57,6 +64,9 @@ Set.prototype.has = function(val){
 Set.prototype.indexOf = function(val){
   for (var i = 0, len = this.vals.length; i < len; ++i) {
     var obj = this.vals[i];
+
+    // Comparation logic hierarchy
+    if (this.areEqual && this.areEqual(obj, val)) return i;
     if (obj.equals && obj.equals(val)) return i;
     if (obj == val) return i;
   }
@@ -185,4 +195,3 @@ Set.prototype.intersect = function(set){
 Set.prototype.isEmpty = function(){
   return 0 == this.vals.length;
 };
-
