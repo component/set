@@ -20,7 +20,7 @@ function Set(vals, opts) {
 
   // Manage options
   opts = opts || {};
-  this.compare = ('function' == typeof(opts.comparator)) ? opts.comparator : this._defaultComparator;
+  this.areEqual = ('function' == typeof(opts.comparator)) ? opts.comparator : null;
 
   if (vals) {
     for (var i = 0; i < vals.length; ++i) {
@@ -64,8 +64,11 @@ Set.prototype.has = function(val){
 Set.prototype.indexOf = function(val){
   for (var i = 0, len = this.vals.length; i < len; ++i) {
     var obj = this.vals[i];
+
+    // Comparation logic hierarchy
+    if (this.areEqual && this.areEqual(obj, val)) return i;
     if (obj.equals && obj.equals(val)) return i;
-    if (this.compare(obj, val)) return i;
+    if (obj == val) return i;
   }
   return -1;
 };
@@ -192,14 +195,3 @@ Set.prototype.intersect = function(set){
 Set.prototype.isEmpty = function(){
   return 0 == this.vals.length;
 };
-
-/**
- * Default comparator
- *
- * Compares two possible members of the `Set` to determine equality.
- * Should be overriden through `Set` constructor.
- *
- * @return {Boolean}
- * @api private
- */
-var _defaultComparator = function(a, b) { return a == b; };
