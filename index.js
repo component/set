@@ -5,22 +5,29 @@
 
 module.exports = Set;
 
+
 /**
  * Initialize a new `Set` with optional `vals`
  *
- * @param {Array} vals
+ * @param {Array} vals source array
+ * @param {Object} opts options parameter to specify custom `comparator` function
  * @api public
  */
 
-function Set(vals) {
-  if (!(this instanceof Set)) return new Set(vals);
+function Set(vals, opts) {
+  if (!(this instanceof Set)) return new Set(vals, opts);
   this.vals = [];
+
+  // Manage options
+  opts = opts || {};
+  this.compare = ('function' == typeof(opts.comparator)) ? opts.comparator : this._defaultComparator;
+
   if (vals) {
     for (var i = 0; i < vals.length; ++i) {
       this.add(vals[i]);
     }
   }
-}
+};
 
 /**
  * Add `val`.
@@ -58,7 +65,7 @@ Set.prototype.indexOf = function(val){
   for (var i = 0, len = this.vals.length; i < len; ++i) {
     var obj = this.vals[i];
     if (obj.equals && obj.equals(val)) return i;
-    if (obj == val) return i;
+    if (this.compare(obj, val)) return i;
   }
   return -1;
 };
@@ -186,3 +193,13 @@ Set.prototype.isEmpty = function(){
   return 0 == this.vals.length;
 };
 
+/**
+ * Default comparator
+ *
+ * Compares two possible members of the `Set` to determine equality.
+ * Should be overriden through `Set` constructor.
+ *
+ * @return {Boolean}
+ * @api private
+ */
+var _defaultComparator = function(a, b) { return a == b; };
