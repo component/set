@@ -89,6 +89,10 @@ User.prototype.equals = function(user){
 
   Perform an intersection with `set` and return a new `Set`.
 
-## License 
+### Set#clone()
+
+  Clone the set and return a new `Set` of the same values.
+
+## License
 
   MIT
