@@ -2,9 +2,16 @@
   "name": "set",
   "version": "1.0.0",
   "description": "set container",
-  "keywords": ["set"],
-  "scripts": ["index.js"],
+  "keywords": [
+    "set"
+  ],
+  "scripts": [
+    "index.js"
+  ],
   "development": {
     "component/assert": "*"
-  }
+  },
+  "remotes": [
+    "https://raw.githubusercontent.com"
+  ]
 }
